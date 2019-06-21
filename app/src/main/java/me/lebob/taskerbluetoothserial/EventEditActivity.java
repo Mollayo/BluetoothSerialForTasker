@@ -36,7 +36,6 @@ public class EventEditActivity extends AppCompatActivity {
             Bundle bundleExtra = getIntent().getBundleExtra(com.twofortyfouram.locale.api.Intent.EXTRA_BUNDLE);
             checkBox.setChecked(bundleExtra.getBoolean(Constants.BUNDLE_BOOL_HEX));
         }
-
     }
 
     @Override
