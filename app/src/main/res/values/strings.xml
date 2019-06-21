@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name" formatted="false">Bluetooth Serial for Tasker</string>
+    <string name="title_activity_edit">BT Serial</string>
+    <string name="setup" formatted="false">You\'re all setup and ready to rock!\n\nBluetooth Serial for Tasker will now show up as a Plugin within Tasker when adding a new event profile</string>
+    <string name="message">Message</string>
+    <string name="type">Type</string>
+    <string name="wild">Wildcard</string>
+    <string name="exact_match">Exact Match</string>
+    <string name="blurb_var" formatted="false">The variable %serial_data contains the data received from the Bluetooth device.\nThe variable %serial_addr contains the address of the Bluetooth device sending the data.</string>
+    <string name="plugin_name">Bluetooth Serial</string>
+    <string name="mac_hint">00:11:22:AA:BB:CC (Paired MAC Address)</string>
+    <string name="message_hint">Message to send. Can be hex with spaces (example: 0B AD F00D)</string>
+    <string name="crlf_message">Include CRLF (\\r\\n)</string>
+    <string name="crlf_message2">Send Event when receiving CRLF (\\r\\n)</string>
+    <string name="hex_message">Interpret message as hex bytes</string>
+    <string name="button_message">Show all paired devices</string>
+    <string name="invalid_mac">Invalid MAC address</string>
+    <string name="invalid_msg">Empty Message without CRLF</string>
+    <string name="invalid_hex">Invalid Hex: only spaces and even number of 0-9A-Fa-f allowed</string>
+    <string name="bluetooth_error">This device does not support bluetooth</string>
+</resources>
