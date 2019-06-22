@@ -5,5 +5,5 @@ With this pugin, you can:
 - Connect, disconnect and send data to a Bluetooth device using a Tasker Action.
 - Receive data from the Bluetooth device using a Tasker Profile.
 
-This plugin can use Tasker variables for the address of the Bluetooth device and the data to send or receive.
+This plugin can use Tasker variables for the address of the Bluetooth device and the data to send or receive. The format of the transmitted data cab be either string or hex.
 
