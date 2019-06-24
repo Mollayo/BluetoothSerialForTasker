@@ -5,8 +5,11 @@ import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.util.Log;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
 
 import me.lebob.taskerbluetoothserial.utils.Constants;
 
@@ -23,6 +26,23 @@ public class Singleton
         String addr;
     }
     static public List<BTConnection> btConnectionList=init();
+
+    /*
+    static public class SerialData
+    {
+        SerialData(String newAddr, byte[] newData, Instant newTime)
+        {
+            data=newData;
+            addr=newAddr;
+            time=newTime;
+        }
+
+        public byte[] data;
+        public Instant time;
+        public String addr;
+    }
+    static public BlockingQueue<SerialData> serialData=new LinkedBlockingDeque();
+    */
     static public Context context=null;
 
 

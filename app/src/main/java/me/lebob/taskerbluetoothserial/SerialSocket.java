@@ -120,9 +120,10 @@ class SerialSocket implements Runnable {
 
                 // If the time between two consecutive broadcasts is too small, messages are lost
                 // 500 ms minimum between each broadcast
+                // 100 ms is too small
                 if (lastSentDataTime !=null) {
                     Duration diff = Duration.between(lastSentDataTime, Instant.now());
-                    diff = diff.minusMillis(100);
+                    diff = diff.minusMillis(200);
                     if (diff.isNegative()) {
                         Thread.sleep(10);
                         continue;
@@ -158,6 +159,7 @@ class SerialSocket implements Runnable {
                 bundle.putString(Constants.BUNDLE_STRING_MAC, addr);
                 // Add the data received from serial connection
                 bundle.putByteArray(Constants.BUNDLE_STRING_MSG, dataToSend);
+
                 // Set the size to 0
                 TaskerPlugin.Event.addPassThroughData(INTENT_REQUEST_REQUERY, bundle);
                 TaskerPlugin.Event.addPassThroughMessageID(INTENT_REQUEST_REQUERY);
@@ -174,9 +176,23 @@ class SerialSocket implements Runnable {
         }
     }
 
-    // Find the first position of the smallerArray inside the outerArray
+    // Find the last position of the smallerArray inside the outerArray
     private int indexOf(byte[] outerArray, byte[] smallerArray) {
+        /*
         for(int i = 0; i < outerArray.length - smallerArray.length+1; ++i) {
+            boolean found = true;
+            for(int j = 0; j < smallerArray.length; ++j) {
+                if (outerArray[i+j] != smallerArray[j]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) return i;
+        }
+        return -1;
+    }
+    */
+        for(int i = outerArray.length - smallerArray.length; i >0 ; --i) {
             boolean found = true;
             for(int j = 0; j < smallerArray.length; ++j) {
                 if (outerArray[i+j] != smallerArray[j]) {
