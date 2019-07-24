@@ -10,6 +10,9 @@ import java.util.regex.Pattern;
 
 import me.lebob.taskerbluetoothserial.R;
 
+import static me.lebob.taskerbluetoothserial.utils.Constants.clrf_string_display;
+import static me.lebob.taskerbluetoothserial.utils.Constants.crlf_bytes;
+
 public class ActionBundleManager {
 
     // only accept valid MAC addresses of form 00:11:22:AA:BB:CC, where colons can be dashes
@@ -141,10 +144,8 @@ public class ActionBundleManager {
         final boolean hex = getHex(bundle);
         final int conDisconSend = getConDisconSend(bundle);
 
-        final String clrf_string = "\\r\\n";
-
         final int max_len = 60;
-        final int crlf_len = crlf ? clrf_string.length() : 0;
+        final int crlf_len = crlf ? clrf_string_display.length() : 0;
         final String ellipses = "...";
 
         StringBuilder builder = new StringBuilder();
@@ -173,7 +174,7 @@ public class ActionBundleManager {
                 builder.append(ellipses);
             }
             if (crlf) {
-                builder.append(clrf_string);
+                builder.append(clrf_string_display);
             }
         }
 
@@ -227,7 +228,6 @@ public class ActionBundleManager {
             int old_length = msg_bytes.length;
 
             // add CRLF bytes
-            byte[] crlf_bytes = "\r\n".getBytes();
             msg_bytes = Arrays.copyOf(msg_bytes, old_length + crlf_bytes.length);
             for (int i = 0; i < crlf_bytes.length; ++i) {
                 msg_bytes[old_length + i] = crlf_bytes[i];

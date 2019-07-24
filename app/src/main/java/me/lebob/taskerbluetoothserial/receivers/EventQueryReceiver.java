@@ -15,12 +15,15 @@ import android.util.Log;
 import java.time.Instant;
 import java.util.Locale;
 
+import static me.lebob.taskerbluetoothserial.utils.Constants.clrf_string;
+
+
 /**
  * Created by dmillerw
  */
 public class EventQueryReceiver extends BroadcastReceiver {
 
-    EventQueryReceiver()
+    public EventQueryReceiver()
     {
         Log.v(Constants.LOG_TAG, "EventQueryReceiver::BroadcastReceiver");
     }
@@ -70,10 +73,27 @@ public class EventQueryReceiver extends BroadcastReceiver {
                             sb.append(String.format("%02X ", serialData[i]));
                         }
                         serialDataStr=sb.toString();
+                        variables.putString("%serial_data1", serialDataStr);
                     }
-                    else
+                    else {
+                        // To be tested
                         serialDataStr = new String(serialData);
-                    variables.putString("%serial_data", serialDataStr);
+                        int eltIdx=1;
+                        while(serialDataStr.length()>0) {
+                            int idx = serialDataStr.indexOf(clrf_string);
+                            String strElt = serialDataStr;
+                            if (idx > -1) {
+                                strElt = serialDataStr.substring(0, idx);
+                                if (idx + clrf_string.length() < serialDataStr.length())
+                                    serialDataStr = serialDataStr.substring(idx + clrf_string.length());
+                                else
+                                    serialDataStr = "";
+                            } else
+                                serialDataStr = "";
+                            variables.putString("%serial_data" + Integer.toString(eltIdx), strElt);
+                            eltIdx++;
+                        }
+                    }
                     variables.putString("%serial_addr", serialMac);
                     TaskerPlugin.addVariableBundle(getResultExtras(true), variables);
                 }

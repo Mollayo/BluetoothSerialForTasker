@@ -18,6 +18,7 @@ import java.util.concurrent.Executors;
 import me.lebob.taskerbluetoothserial.utils.Constants;
 import me.lebob.taskerbluetoothserial.utils.TaskerPlugin;
 
+import static me.lebob.taskerbluetoothserial.utils.Constants.crlf_bytes;
 
 
 class SerialSocket implements Runnable {
@@ -33,7 +34,7 @@ class SerialSocket implements Runnable {
     private BluetoothDevice device;
     private BluetoothSocket socket;
     String addr;
-    byte[] crlf_bytes = "\r\n".getBytes();
+
 
 
     SerialSocket() {
@@ -119,7 +120,7 @@ class SerialSocket implements Runnable {
 
 
                 // If the time between two consecutive broadcasts is too small, messages are lost
-                // 500 ms minimum between each broadcast
+                // 200 ms minimum between each broadcast
                 // 100 ms is too small
                 if (lastSentDataTime !=null) {
                     Duration diff = Duration.between(lastSentDataTime, Instant.now());

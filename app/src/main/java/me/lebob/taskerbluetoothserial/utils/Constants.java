@@ -16,4 +16,8 @@ public class Constants
 
     public static final String LOG_TAG = "BTSerial";
 
+    public static String clrf_string_display = "\\r\\n";
+    public static String clrf_string = "\r\n";
+    public static byte[] crlf_bytes = "\r\n".getBytes();
+
 }

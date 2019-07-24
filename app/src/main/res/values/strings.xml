@@ -6,7 +6,7 @@
     <string name="type">Type</string>
     <string name="wild">Wildcard</string>
     <string name="exact_match">Exact Match</string>
-    <string name="blurb_var" formatted="false">The variable %serial_data contains the data received from the Bluetooth device.\nThe variable %serial_addr contains the address of the Bluetooth device sending the data.</string>
+    <string name="blurb_var" formatted="false">The array %serial_data1, %serial_data2, etc  contains the data received from the Bluetooth device.\nThe variable %serial_addr contains the address of the Bluetooth device sending the data.</string>
     <string name="plugin_name">Bluetooth Serial</string>
     <string name="mac_hint">00:11:22:AA:BB:CC (Paired MAC Address)</string>
     <string name="message_hint">Message to send. Can be hex with spaces (example: 0B AD F00D)</string>
