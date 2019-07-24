@@ -19,4 +19,5 @@ public class Constants
     public static String clrf_string_display = "\\r\\n";
     public static String clrf_string = "\r\n";
     public static byte[] crlf_bytes = "\r\n".getBytes();
+
 }
