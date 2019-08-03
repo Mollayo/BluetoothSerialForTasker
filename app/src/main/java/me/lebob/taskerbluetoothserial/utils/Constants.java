@@ -13,7 +13,6 @@ public class Constants
     public final static String BUNDLE_BOOL_CRLF  = BuildConfig.APPLICATION_ID +  ".BOOL_CRLF";
     public final static String BUNDLE_BOOL_HEX   = BuildConfig.APPLICATION_ID +  ".BOOL_HEX";
 
-
     public static final String LOG_TAG = "BTSerial";
 
     public static String clrf_string_display = "\\r\\n";
