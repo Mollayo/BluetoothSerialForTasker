@@ -7,3 +7,6 @@ With this pugin, you can:
 
 This plugin can use Tasker variables for the address of the Bluetooth device and the data to send or receive. The format of the transmitted data can be either string or hex.
 
+The compiled plugin is available here: https://github.com/Mollayo/BluetoothSerialForTasker/blob/master/app/app-release.apk.
+
+
